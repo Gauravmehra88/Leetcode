@@ -16,10 +16,13 @@ public:
          if(text1[idx1]==text2[idx2]){
             return dp[idx1][idx2]=1 + recur(text1 , text2 , idx1-1 , idx2-1 ,dp);
         }
+        else{
         
         int t1= 0 + recur(text1 , text2 , idx1-1 , idx2,dp);
         int t2=0 + recur(text1 , text2 , idx1 , idx2-1,dp);
+        return dp[idx1][idx2] = max(t1,t2);
+        }
 
-        return dp[idx1][idx2] = max(t1 , t2);
+        return dp[idx1][idx2] ;
     }
 };
