@@ -7,21 +7,22 @@ public:
          while(i<=j){
             if( abs(nums[i]) == abs(nums[j]) ){
                 if(i!=j){ 
-                ans.insert(ans.begin(),nums[i]*nums[i]);
+                ans.push_back(nums[i]*nums[i]);
                 }
-                ans.insert(ans.begin(),nums[i]*nums[i]);
+                ans.push_back(nums[i]*nums[i]);
                 i++;
                 j--;
             }
             else if(abs(nums[i]) > abs(nums[j]) ){
-                ans.insert(ans.begin(),nums[i]*nums[i]);
+                ans.push_back(nums[i]*nums[i]);
                 i++;
             }
             else{
-                ans.insert(ans.begin(),nums[j]*nums[j]);
+                ans.push_back(nums[j]*nums[j]);
                 j--;
             } 
          }
-         return ans;
-    }
+            reverse(ans.begin(),ans.end());
+            return ans;
+         }
 };
